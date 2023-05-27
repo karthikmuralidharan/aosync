@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "aosync"
+version = "0.1.0"
+description = ""
+authors = ["Karthik Muralidharan <karthik.muralidharan@solarwinds.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.3"
+pyyaml = "^6.0"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

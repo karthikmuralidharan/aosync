@@ -1,0 +1,48 @@
+# Schema for Dashboard
+Dashboard:
+  name: (str)
+  dashboard_id: (int, optional)
+  dynamic_tags: (list of Tag, optional)
+  charts: (list of Chart)
+
+# Schema for Chart
+Chart:
+  name: (str)
+  type: (str)
+  chart_id: (int, optional)
+  streams: (list of Stream)
+  min: (int, optional)
+  max: (int, optional)
+  label: (str, optional)
+  related_space: (int, optional)
+  thresholds: (list of Threshold, optional)
+
+# Schema for Stream
+Stream:
+  metric: (str)
+  tags: (list of Tag)
+  composite: (str, optional)
+  group_function: (str, optional)
+  summary_function: (str, optional)
+  downsample_function: (str, optional)
+  color: (str, optional)
+  name: (str, optional)
+  units_short: (str, optional)
+  units_long: (str, optional)
+  min: (int, optional)
+  max: (int, optional)
+  transform_function: (str, optional)
+  period: (int, optional)
+
+# Schema for Tag
+Tag:
+  name: (str)
+  values: (list of str)
+  grouped: (bool, optional)
+  dynamic: (bool, optional)
+
+# Schema for Threshold
+Threshold:
+  operator: (str)
+  value: (int)
+  type: (str)

@@ -14,12 +14,16 @@ class AppOpticsAPI:
         ).json()
 
     def create_dashboard(self, dashboard):
+        del dashboard['charts']
+        del dashboard['dynamic_tags']
         path = f"/spaces"
-        return self._post(path, dashboard).json()
+        return self._post(path, dashboard)
 
     def update_dashboard(self, dashboard_id, dashboard):
+        del dashboard['charts']
+        del dashboard['dynamic_tags']
         path = f"/spaces/{dashboard_id}"
-        return self._put(path, dashboard).json()
+        return self._put(path, dashboard)
 
     def delete_dashboard(self, dashboard_id):
         path = f"/spaces/{dashboard_id}"
@@ -27,14 +31,14 @@ class AppOpticsAPI:
 
     def create_chart(self, dashboard_id, chart):
         path = f"/spaces/{dashboard_id}/charts"
-        return self._post(path, chart).json()
+        return self._post(path, chart)
 
     def get_all_charts(self, dashboard_id):
         return self._get(f"/spaces/{dashboard_id}/charts").json()
 
     def update_chart(self, dashboard_id, chart_id, chart):
         path = f"/spaces/{dashboard_id}/charts/{chart_id}"
-        return self._put(path, chart).json()
+        return self._put(path, chart)
 
     def delete_chart(self, dashboard_id, chart_id):
         path = f"/spaces/{dashboard_id}/charts/{chart_id}"

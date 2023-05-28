@@ -11,8 +11,12 @@ def _tag_from_response(response):
 
 
 def _stream_from_response(response):
-    metric = response['metric']
-    tags = [_tag_from_response(tag) for tag in response['tags']]
+    metric = response.get('metric')
+    if response.get('tags') is None:
+        tags = None
+    else:
+        tags = [_tag_from_response(tag) for tag in response.get('tags')]
+    composite = response.get('composite')
     group_function = response.get('group_function', None)
     summary_function = response.get('summary_function', None)
     downsample_function = response.get('downsample_function', None)
@@ -27,6 +31,7 @@ def _stream_from_response(response):
     return Stream(
         metric=metric,
         tags=tags,
+        composite=composite,
         group_function=group_function,
         summary_function=summary_function,
         downsample_function=downsample_function,
@@ -42,9 +47,9 @@ def _stream_from_response(response):
 
 
 def _chart_from_response(response):
-    name = response['name']
-    type = response['type']
-    chart_id = response['id']
+    name = response.get('name')
+    type = response.get('type')
+    chart_id = response.get('id')
     min = response.get('min', None)
     max = response.get('max', None)
     label = response.get('label', None)

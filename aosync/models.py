@@ -1,19 +1,22 @@
 from dataclasses import dataclass, field
+from dataclasses_json import dataclass_json
 from typing import List, Optional
 
 
+@dataclass_json
 @dataclass
 class Tag:
     name: str
     values: List[str]
-    grouped: Optional[bool] = None
-    dynamic: Optional[bool] = None
+    grouped: Optional[bool] = False
+    dynamic: Optional[bool] = False
 
 
+@dataclass_json
 @dataclass
 class Stream:
-    metric: str
-    tags: List[Tag]
+    metric: Optional[str] = None
+    tags: Optional[List[Tag]] = None
     composite: Optional[str] = None
     group_function: Optional[str] = None
     summary_function: Optional[str] = None
@@ -28,6 +31,7 @@ class Stream:
     period: Optional[int] = None
 
 
+@dataclass_json
 @dataclass
 class Threshold:
     operator: str
@@ -35,6 +39,7 @@ class Threshold:
     type: str
 
 
+@dataclass_json
 @dataclass
 class Chart:
     name: str
@@ -48,6 +53,7 @@ class Chart:
     id: Optional[int] = field(default=None, compare=False)
 
 
+@dataclass_json
 @dataclass
 class Dashboard:
     name: str

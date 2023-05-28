@@ -45,12 +45,12 @@ class Chart:
     label: Optional[str] = None
     related_space: Optional[int] = None
     thresholds: Optional[List[Threshold]] = None
-    chart_id: Optional[int] = field(default=None, compare=False)
+    id: Optional[int] = field(default=None, compare=False)
 
 
 @dataclass
 class Dashboard:
     name: str
     charts: List[Chart]
-    dashboard_id: Optional[int] = field(default=None, compare=False)
+    id: Optional[int] = field(default=None, compare=False)
     dynamic_tags: Optional[List[Tag]] = None

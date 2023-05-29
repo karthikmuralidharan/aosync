@@ -52,8 +52,11 @@ def sync(input, appoptics_token):
         click.echo('Please provide an input file for sync operation')
 
 
-cli.add_command(sync)
-cli.add_command(pull)
+def main():
+    cli.add_command(sync)
+    cli.add_command(pull)
+    cli()
+
 
 if __name__ == "__main__":
-    cli()
+    main()

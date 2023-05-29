@@ -16,3 +16,6 @@ dataclasses-json = "^0.5.7"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+your-package = 'aosync.__main__:main'
